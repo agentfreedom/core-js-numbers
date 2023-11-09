@@ -421,8 +421,11 @@ function getNumberValue(number) {
  * 5        => true
  * '5'      => false
  */
-function isNumber(/* number */) {
-  throw new Error('Not implemented');
+function isNumber(number) {
+  const numIsNumber = typeof number === 'number';
+  const numIsNan = !Number.isNaN(number);
+  const numIsInfinity = Number.isFinite(number);
+  return numIsNumber && numIsNan && numIsInfinity;
 }
 
 /**
